@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ block 'title' }}默认标题{{ /block }}</title>
+    <link rel="stylesheet" href="/public/css/base.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1220616_bnzancnfus8.css">
+    <link rel="stylesheet" href="/public/css/swiper.min.css">
+
+    {{ block 'style' }}{{ /block }}
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?2f76408dd19e267f6a269cb4d8971bd3";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+
+<body>
+    
+    {{ include '../_partials/header.html' }}
+    <!-- 留坑 -->
+    <div class="container">
+    {{ block 'body' }}{{ /block }}
+    </div>
+    {{ include '../_partials/footer.html' }}
+    
+    <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/public/js/jquery.ripples.js"></script>
+    
+    <script type="text/javascript" src="/public/js/swiper.min.js"></script>
+    <script type="text/javascript" src="/public/js/common.js"></script>
+
+    {{ block 'script' }}
+    <!-- 脚本 -->
+    {{ /block }}
+</body>
+
+</html>

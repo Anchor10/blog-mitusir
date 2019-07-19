@@ -1,0 +1,54 @@
+{{ extend './_layouts/home.html' }}
+
+{{ block 'title' }}{{ '编辑' }}{{ /block }}
+{{ block 'style' }}
+<link rel="stylesheet" href="/public/css/editormd.css">
+<link rel="stylesheet" href="/public/css/edit.css">
+
+{{ /block }}
+
+{{ block 'body' }}
+<div class="main edit con-width">
+    <div class="article-title">
+        <p>标题:</p>
+        <input class="input-title" type="text">
+    </div>
+    <div class="article-category">
+        <p>分类:</p>
+        <select name="category" id="category" class = "form-control">
+            <!-- 这里分类信息需要数据库中查 -->
+            <option value="nodejs">nodejs</option>
+            <option value="mongoose">mongoose</option>
+            <option value="javascript">javascript</option>
+        </select>
+    </div>
+    <div id="article-editormd">
+        <p>正文:</p>
+        <textarea style="display: none;" id="ts"></textarea>
+    </div>
+
+    <div class="submit">编辑完成,立即上传</div>
+</div>
+
+{{ /block }}
+
+{{ block 'script' }}
+<script src="/public/js/editormd.js"></script>
+<script type="text/javascript">
+    var articleEditor;
+    $(function () {
+        articleEditor = editormd("article-editormd", {
+            width: '1000px',
+            height: '640px',
+            syncScrolling: "single",
+            path: "/public/lib/"
+        });
+
+        $('.submit').on('click', function () {
+        var val = $('.editormd-markdown-textarea').val();
+        console.log(val)
+    })
+    });
+    
+</script>
+{{ /block }}

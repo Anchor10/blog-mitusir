@@ -1,0 +1,57 @@
+{{ extend './_layouts/home.html' }}
+
+{{ block 'title' }}{{ '首页' }}{{ /block }}
+{{ block 'style' }}
+<link rel="stylesheet" href="/public/css/index.css">
+{{ /block }}
+
+{{ block 'body' }}
+<div class="main con-width clear">
+    <div class="content">
+        <div class="container">
+            <div class="swiper-container" id="banner-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="banner-pic" style="background-image:url(https://pic.zhuayoukong.com/d/file/news/dongtai/2019-06-06/7f9e7518e6cdd0d720bc96712d447716.jpg)"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="banner-pic" style="background-image:url(/public/images/icon-underground.jpg)"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="banner-pic" style="background-image:url(/public/images/banner-top.jpg)"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="banner-pic" style="background-image:url(https://pic.zhuayoukong.com/d/file/news/dongtai/2019-06-06/4e3384698fd8c7768cabe061bd9da96a.jpg)"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="banner-pic" style="background-image:url(https://pic.zhuayoukong.com/d/file/news/huodong/2019-06-06/8ba6f52db585ed37bfcc2ef17339b77a.jpg)"></div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev" id="banner-prev"></div>
+                <div class="swiper-button-next" id="banner-next"></div>
+                <div class="swiper-pagination" id="banner-pagination"></div>
+            </div>
+        </div>
+        {{ each data }}
+        <div class="container article">
+            <div class="article-title">{{$value.title}}</div>
+            <div class="article-info">
+                <span><i class="iconfont icon-biaoqian"></i> {{$value.category}}</span>
+                <span><i class="iconfont icon-shijian"></i> {{$value.createdTime}}</span>
+                <span><i class="iconfont icon-ViewFilled"></i> {{$value.views}}</span>
+                <span><i class="iconfont icon-pinglun"></i> {{$value.comments.length}}</span>
+            </div>
+            <div class="article-content">
+                {{@$value.body}}
+            </div>
+        </div>
+        {{ /each }}
+    </div>
+    {{ include './_partials/side.html' }}
+</div>
+<div class="send">发送验证码</div>
+{{ /block }}
+
+{{ block 'script' }}
+<script src="/public/js/index.js"></script>
+{{ /block }}
