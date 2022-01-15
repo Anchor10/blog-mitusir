@@ -15,7 +15,7 @@
     "express": "^4.17.1",
     "express-art-template": "^1.0.1",
     "jquery": "^3.4.1",
-    "marked": "^0.6.2",
+    "marked": "^4.0.10",
     "mongoose": "^5.5.12",
     "nodemailer": "^6.2.1"
   }
